@@ -11,7 +11,7 @@ body {
 
 html {
   font-size: 62.5%;
-  /*percentage of the root 16px default browser font size here is 10px */
+  /*percentage of the root 16px default browser, font size here is 10px */
   /* note we're using rem all units are relative to this base font size 10px, so e.g. 4rem = 40px */ }
 
 /*
@@ -130,8 +130,26 @@ body {
 
 .section-tours {
   margin-top: -8rem;
-  padding: 20rem 0;
+  padding: 20rem 0 10rem 0;
   background-color: #f7f7f7; }
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0; }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg");
+  background-size: cover;
+  border-radius: 3px;
+  height: 50rem;
+  box-shadow: 0rem 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  .book__form {
+    width: 40%;
+    padding: 6rem; }
 
 .header {
   height: 95vh;
@@ -187,7 +205,9 @@ body {
   display: inline-block;
   border-radius: 10rem;
   transition: all 0.2s;
-  position: relative; }
+  position: relative;
+  border: none;
+  cursor: pointer; }
 
 .btn:hover {
   transform: translateY(-0.3rem);
@@ -197,6 +217,7 @@ body {
     opacity: 0; }
 
 .btn:active {
+  outline: none;
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); }
 
@@ -217,6 +238,12 @@ body {
   color: #777; }
   .btn--white::after {
     background-color: #fff; }
+
+.btn--green {
+  background-color: #55c57a;
+  color: #fff; }
+  .btn--green::after {
+    background-color: #55c57a; }
 
 .btn--animated {
   animation: moveInButtom .5s ease-out .75s;
@@ -239,6 +266,20 @@ body {
 .btn-text:active {
   transform: translateY(0px);
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15); }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden; }
+  .bg-video__content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 
 .composition {
   position: relative; }
@@ -285,6 +326,83 @@ body {
     transform: translateY(-1.5rem) scale(1.03); }
   .feature-box__text {
     font-size: 1.3rem; }
+
+.form__input {
+  padding: 1.2rem 2rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: inherit !important;
+  font-size: 1.5rem;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 80%;
+  display: block;
+  transition: all .3s; }
+  .form__input:focus {
+    outline: none;
+    border-bottom: 3px solid #7ed56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1); }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+.form__input:placeholder-shown + .form__label {
+  transform: translateY(-4rem);
+  visibility: hidden;
+  opacity: 0; }
+
+.form__label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: inherit;
+  margin-left: 2.1rem;
+  display: block;
+  transition: all 1s; }
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__radio-group {
+  width: 40%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 3rem; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.2rem;
+  padding-left: 4.5rem;
+  position: relative; }
+
+.form__radio-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: -.4rem;
+  left: 0;
+  border: 5px solid #55c57a; }
+  .form__radio-btn::after {
+    content: "";
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    background-color: #55c57a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-btn::after {
+  opacity: 1; }
 
 .card {
   -moz-perspective: 150rem;
@@ -380,3 +498,46 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  padding: 6rem;
+  transform: skewX(-12deg);
+  position: relative; }
+  .story__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(2); }
+  .story__shape {
+    background-color: orangered;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    backface-visibility: hidden;
+    transition: all 1s; }
+  .story__text {
+    transform: skewX(12deg); }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__img {
+    transform: translate(-4rem) scale(1);
+    filter: blur(3px) brightness(100%); }
