@@ -9,6 +9,8 @@
     border-radius: 10rem;
     transition: all 0.2s;
     position: relative;
+    border: none;
+    cursor: pointer;
   }
     &:hover{
       transform: translateY(-.3rem);
@@ -19,6 +21,7 @@
       }
     }
     &:active{
+      outline: none;
       transform: translateY(-.1rem);
       box-shadow: 0 .5rem 1rem rgba($color-black, 0.1);
     }
@@ -41,6 +44,15 @@
       color: $color-grey-dark;
       &::after{
         background-color: $color-white;
+      }
+    }
+
+        
+    &--green{
+      background-color: $color-primary-medium;
+      color: $color-white;
+      &::after{
+        background-color: $color-primary-medium;
       }
     }
     
